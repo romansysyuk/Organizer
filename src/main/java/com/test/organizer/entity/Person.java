@@ -31,6 +31,9 @@ public class Person {
 	
 	@Column(name = "birthday")
 	private Date birthday;
+
+	@Column(name = "email")
+	private String email;
 	
 	@Column(name = "login")
 	private String login;
@@ -88,6 +91,14 @@ public class Person {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}	
+	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

@@ -8,5 +8,7 @@
 </head>
 <body>
 <a href="newperson">REGISTER</a>
+<br>
+<a href="login">LOGIN</a>
 </body>
 </html>

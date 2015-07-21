@@ -27,4 +27,14 @@ public class PersonController {
 		personService.savePerson(person);
 		return "registrationcomleted";
 	}
+	
+	@RequestMapping(value = {"/login"}, method = RequestMethod.GET)
+	public String login(){
+		return "loginpage";
+	}
+	
+	@RequestMapping(value = {"/login"}, method = RequestMethod.POST)
+	public String loginSuccess(){
+		return "registrationcomleted";
+	}
 }
