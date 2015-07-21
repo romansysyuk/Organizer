@@ -1,4 +1,4 @@
-package com.test.organizer.todo;
+package com.test.organizer.service;
 
 public interface EventService {
 

@@ -1,12 +1,15 @@
 package com.test.organizer.entity;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -40,6 +43,9 @@ public class Person {
 	
 	@Column(name = "password")
 	private String password;
+	
+	@OneToMany(mappedBy = "personId", fetch = FetchType.LAZY)
+	private Set<Event> events;
 
 	public Person() {
 
@@ -99,6 +105,14 @@ public class Person {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public Set<Event> getEvents() {
+		return events;
+	}
+
+	public void setEvents(Set<Event> events) {
+		this.events = events;
 	}
 
 }
