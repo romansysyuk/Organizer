@@ -25,11 +25,12 @@ public class PersonDaoImpl extends AbstractDaoImpl<Person>implements PersonDao {
 		return (List<Person>) criteria.list();
 	}
 
-//	@SuppressWarnings("unchecked")
-//	@Override
-//	public List<Person> findByName(String personName1, String personName2) {
-//		return entityManager.createNamedQuery(Person.FIND_BY_TWO_NAMES).setParameter(1, personName1)
-//				.setParameter(2, personName2).getResultList();
-//	}
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Person> findByTwoNames(String personName1, String personName2) {
+		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
+		criteria.add(Restrictions.eq("personName1", personName1));
+		criteria.add(Restrictions.eq("personName2", personName2));
+		return (List<Person>) criteria.list();
+	}
 }
