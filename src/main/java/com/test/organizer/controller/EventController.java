@@ -27,5 +27,4 @@ public class EventController {
 		eventService.saveEvent(event);
 		return "registrationcomleted";
 	}
-	
 }
