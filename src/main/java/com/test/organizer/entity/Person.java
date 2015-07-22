@@ -43,9 +43,6 @@ public class Person {
 	
 	@Column(name = "password")
 	private String password;
-	
-	@OneToMany(mappedBy = "personId", fetch = FetchType.LAZY)
-	private Set<Event> events;
 
 	public Person() {
 
@@ -106,13 +103,4 @@ public class Person {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	public Set<Event> getEvents() {
-		return events;
-	}
-
-	public void setEvents(Set<Event> events) {
-		this.events = events;
-	}
-
 }

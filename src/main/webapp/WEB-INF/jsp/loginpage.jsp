@@ -12,15 +12,17 @@
 	<form name="loginForm" action="<c:url value='login'/>" method='POST'>
 		<table>
 			<tr>
-			<td>User:</td>
-			<td><input type='text' name='userName' value=''/></td>
+				<td>User:</td>
+				<td><input type='text' name='userName' value='' /></td>
 			</tr>
 			<tr>
-			<td>Password:</td>
-			<td><input type='password' name='password'/></td>
+				<td>Password:</td>
+				<td><input type='password' name='password' /></td>
 			</tr>
 			<tr>
-			<td colspan='2'> <input name="submit" type = "submit" value = "submit"></td>
+				<td colspan='2'><input name="submit" type="submit"
+					value="submit"></td>
+				<td colspan='2'><a href="/newperson">REGISTER</a></td>
 			</tr>
 		</table>
 	</form>
