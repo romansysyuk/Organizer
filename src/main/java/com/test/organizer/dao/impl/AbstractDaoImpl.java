@@ -1,10 +1,12 @@
-package com.test.organizer.dao;
+package com.test.organizer.dao.impl;
 
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import com.test.organizer.dao.AbstractDao;
 
 public abstract class AbstractDaoImpl<E> implements AbstractDao<E> {
 

@@ -1,4 +1,4 @@
-package com.test.organizer.dao;
+package com.test.organizer.dao.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
+import com.test.organizer.dao.EventDao;
 import com.test.organizer.entity.Event;
 
 @Repository("eventDaoImpl")

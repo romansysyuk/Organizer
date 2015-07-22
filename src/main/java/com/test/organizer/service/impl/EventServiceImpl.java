@@ -1,4 +1,4 @@
-package com.test.organizer.service;
+package com.test.organizer.service.impl;
 
 import java.util.Date;
 import java.util.List;
@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.test.organizer.dao.EventDao;
 import com.test.organizer.entity.Event;
+import com.test.organizer.service.EventService;
 
 @Service("eventService")
 @Transactional

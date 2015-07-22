@@ -1,4 +1,4 @@
-package com.test.organizer.service;
+package com.test.organizer.service.impl;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.test.organizer.dao.PersonDao;
 import com.test.organizer.entity.Person;
+import com.test.organizer.service.PersonService;
 
 @Service("personService")
 @Transactional
