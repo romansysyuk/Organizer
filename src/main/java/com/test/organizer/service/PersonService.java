@@ -4,10 +4,18 @@ import java.util.List;
 
 import com.test.organizer.entity.Person;
 
-public interface PersonService{
-	public List<Person> getPersonByName(String personName);
-	public List<Person> getPersonByTwoNames(String personName1, String personName2);
-	public boolean savePerson(Person person);
-	public boolean updatePerson(Person person);
-	public boolean deletePerson(Person person);
+public interface PersonService {
+	Person getById(int id);
+
+	List<Person> getPersonByName(String personName);
+
+	List<Person> getPersonByTwoNames(String firstName, String lastName);
+
+	List<Person> getAllPersons();
+
+	boolean savePerson(Person person);
+
+	boolean updatePerson(Person person);
+
+	boolean deletePerson(Person person);
 }

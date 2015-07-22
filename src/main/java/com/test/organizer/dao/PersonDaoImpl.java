@@ -27,10 +27,10 @@ public class PersonDaoImpl extends AbstractDaoImpl<Person>implements PersonDao {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Person> findByTwoNames(String personName1, String personName2) {
+	public List<Person> findByTwoNames(String firstName, String lastName) {
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
-		criteria.add(Restrictions.eq("personName1", personName1));
-		criteria.add(Restrictions.eq("personName2", personName2));
+		criteria.add(Restrictions.eq("personName1", firstName));
+		criteria.add(Restrictions.eq("personName2", lastName));
 		return (List<Person>) criteria.list();
 	}
 }

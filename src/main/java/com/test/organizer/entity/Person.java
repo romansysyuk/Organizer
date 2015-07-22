@@ -26,11 +26,11 @@ public class Person {
 	@Column(name="personId")
 	private int personId;
 	
-	@Column(name = "personName1")
-	private String personName1;
+	@Column(name = "firstName")
+	private String firstName;
 	
-	@Column(name = "personName2")
-	private String personName2;
+	@Column(name = "lastName")
+	private String lastName;
 	
 	@Column(name = "birthday")
 	private Date birthday;
@@ -60,19 +60,19 @@ public class Person {
 	}
 
 	public String getPersonName1() {
-		return personName1;
+		return firstName;
 	}
 
 	public void setPersonName1(String personName1) {
-		this.personName1 = personName1;
+		this.firstName = personName1;
 	}
 
 	public String getPersonName2() {
-		return personName2;
+		return lastName;
 	}
 
 	public void setPersonName2(String personName2) {
-		this.personName2 = personName2;
+		this.lastName = personName2;
 	}
 
 	public Date getBirthday() {

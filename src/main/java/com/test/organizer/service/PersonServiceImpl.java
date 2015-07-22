@@ -15,7 +15,19 @@ public class PersonServiceImpl implements PersonService {
 
 	@Autowired
 	private PersonDao personDao;
-	
+
+	@Override
+	public Person getById(int id) {
+		Person person = personDao.getById(id);
+		return person;
+	}
+
+	@Override
+	public List<Person> getAllPersons() {
+		List<Person> allPersons = personDao.getAll();
+		return allPersons;
+	}
+
 	@Override
 	public List<Person> getPersonByName(String personName) {
 		List<Person> persons = (List<Person>) personDao.findByName(personName);
@@ -23,8 +35,8 @@ public class PersonServiceImpl implements PersonService {
 	}
 
 	@Override
-	public List<Person> getPersonByTwoNames(String personName1, String personName2) {
-		List<Person> persons = (List<Person>) personDao.findByTwoNames(personName1, personName2);
+	public List<Person> getPersonByTwoNames(String firstName, String lastName) {
+		List<Person> persons = (List<Person>) personDao.findByTwoNames(firstName, lastName);
 		return persons;
 	}
 
@@ -42,8 +54,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public boolean deletePerson(Person person) {
-		personDao.remove(person);
+		personDao.delete(person);
 		return false;
 	}
-
 }

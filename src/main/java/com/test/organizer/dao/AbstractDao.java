@@ -9,9 +9,9 @@ public interface AbstractDao<E> {
 
 	public void update(E entity);
 
-	public void remove(E entity);
+	public void delete(E entity);
 
 	public List<E> getAll();
-	
+
 	public abstract Class<E> getEntityClass();
 }

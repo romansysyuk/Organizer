@@ -8,6 +8,7 @@
 </head>
 <body>
 	GREAT!!!!
+	<a href="newevent">Create the event</a>
 	<script>
 		/*Copyright 1996 - Tomer and Yehuda Shiran
 		 Feel free to "steal" this code provided that you leave this notice as is.

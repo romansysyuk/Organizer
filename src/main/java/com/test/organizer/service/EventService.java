@@ -1,5 +1,22 @@
 package com.test.organizer.service;
 
-public interface EventService {
+import java.util.Date;
+import java.util.List;
 
+import com.test.organizer.entity.Event;
+
+public interface EventService {
+	Event getEventById(int id);
+
+	List<Event> getEventByName(String eventName);
+
+	List<Event> getEventByDate(Date eventDate);
+
+	List<Event> getAllEvents();
+
+	boolean saveEvent(Event event);
+
+	boolean updateEvent(Event event);
+
+	boolean deleteEvent(Event event);
 }

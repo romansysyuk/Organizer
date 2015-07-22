@@ -10,11 +10,11 @@ public abstract class AbstractDaoImpl<E> implements AbstractDao<E> {
 
 	@Autowired
 	private SessionFactory sessionFactory;
-	
-	protected Session getSession(){
+
+	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public E getById(int id) {
@@ -32,7 +32,7 @@ public abstract class AbstractDaoImpl<E> implements AbstractDao<E> {
 	}
 
 	@Override
-	public void remove(E entity) {
+	public void delete(E entity) {
 		getSession().delete(entity);
 	}
 

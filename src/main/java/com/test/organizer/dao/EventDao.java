@@ -9,6 +9,4 @@ public interface EventDao extends AbstractDao<Event> {
 	List<Event> getByEventName(String eventName);
 
 	List<Event> getByEventDate(Date eventDate);
-
-	List<Event> getByPersonId(int personId);
 }

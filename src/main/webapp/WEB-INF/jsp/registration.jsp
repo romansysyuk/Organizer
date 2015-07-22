@@ -16,12 +16,12 @@
 		<form:input type="hidden" path="personId" />
 		<table>
 			<tr>
-				<td><label for="personName1">First Name: </label></td>
-				<td><form:input path="personName1" /></td>
+				<td><label for="firstName">First Name: </label></td>
+				<td><form:input path="firstName" /></td>
 			</tr>
 			<tr>
-				<td><label for="personName2">Last Name: </label></td>
-				<td><form:input path="personName2" /></td>
+				<td><label for="lastName">Last Name: </label></td>
+				<td><form:input path="lastName" /></td>
 			</tr>
 			<tr>
 				<td><label for="birthday">Birthday: </label></td>

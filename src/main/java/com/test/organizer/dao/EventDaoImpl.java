@@ -5,10 +5,12 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import com.test.organizer.entity.Event;
 
-public class EventDaoImpl extends AbstractDaoImpl<Event> implements EventDao {
+@Repository("eventDaoImpl")
+public class EventDaoImpl extends AbstractDaoImpl<Event>implements EventDao {
 
 	@Override
 	public Class<Event> getEntityClass() {
@@ -23,18 +25,11 @@ public class EventDaoImpl extends AbstractDaoImpl<Event> implements EventDao {
 		return (List<Event>) criteria.list();
 	}
 
-	@Override
-	public List<Event> getByEventDate(Date eventDate) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Event> getByPersonId(int personId) {
+	public List<Event> getByEventDate(Date eventDate) {
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
-		criteria.add(Restrictions.eq("personId", personId));
+		criteria.add(Restrictions.eq("eventDate", eventDate));
 		return (List<Event>) criteria.list();
 	}
-
 }

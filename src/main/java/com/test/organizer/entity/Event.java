@@ -27,16 +27,13 @@ public class Event {
 	@Column(name = "eventName")
 	private String eventName;
 
-//	@Column(name = "personId")
-//	private int personId;
-
 	@Column(name = "description")
 	private String description;
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "personId")
 	private Person personId;
-	
+
 	public Event() {
 
 	}
