@@ -15,14 +15,14 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
-	@RequestMapping(value = {"/newevent"}, method = RequestMethod.GET)
+	@RequestMapping(value = {"/newevent**"}, method = RequestMethod.GET)
 	public String createEvent(ModelMap model){
 		Event event = new Event();
 		model.addAttribute(event);
 		return "event";
 	}
 	
-	@RequestMapping(value = {"/newevent"}, method = RequestMethod.POST)
+	@RequestMapping(value = {"/newevent**"}, method = RequestMethod.POST)
 	public String saveEvent(Event event){
 		eventService.saveEvent(event);
 		return "registrationcomleted";

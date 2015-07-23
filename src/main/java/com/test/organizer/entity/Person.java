@@ -53,20 +53,20 @@ public class Person {
 		this.personId = personId;
 	}
 
-	public String getPersonName1() {
+	public String getFirstName() {
 		return firstName;
 	}
 
-	public void setPersonName1(String personName1) {
-		this.firstName = personName1;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getPersonName2() {
+	public String getLastName() {
 		return lastName;
 	}
 
-	public void setPersonName2(String personName2) {
-		this.lastName = personName2;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	public Date getBirthday() {
