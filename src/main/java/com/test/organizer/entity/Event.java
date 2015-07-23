@@ -23,6 +23,9 @@ public class Event {
 
 	@Column(name = "eventName")
 	private String eventName;
+	
+	@Column(name = "personLogin")
+	private String personLogin;
 
 	@Column(name = "description")
 	private String description;
@@ -49,6 +52,14 @@ public class Event {
 
 	public String getEventName() {
 		return eventName;
+	}
+	
+	public String getPersonLogin() {
+		return personLogin;
+	}
+
+	public void setPersonLogin(String personLogin) {
+		this.personLogin = personLogin;
 	}
 
 	public void setEventName(String eventName) {

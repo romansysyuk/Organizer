@@ -34,13 +34,13 @@
 }
 </style>
 </head>
-<body onload='document.loginForm.username.focus();'>
+<body onload='document.loginForm.login.focus();'>
 
 	<h1>Spring Security Custom Login Form (Annotation)</h1>
 
 	<div id="login-box">
 
-		<h3>Login with Username and Password</h3>
+		<h3>Login with Login and Password</h3>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>
@@ -54,7 +54,7 @@
 			<table>
 				<tr>
 					<td>User:</td>
-					<td><input type='text' name='username' value=''></td>
+					<td><input type='text' name='login' value=''></td>
 				</tr>
 				<tr>
 					<td>Password:</td>

@@ -40,6 +40,9 @@ public class Person {
 	
 	@Column(name = "password")
 	private String password;
+	
+	@Column(name = "role")
+	private String role;
 
 	public Person() {
 
@@ -99,5 +102,13 @@ public class Person {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
