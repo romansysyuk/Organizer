@@ -29,7 +29,5 @@ create table `event`(
 	`eventId` int(10) not null auto_increment primary key,
 	`eventDate` date not null,
 	`eventName` varchar(50) not null,
-	`personId` int(10) not null,
-	`clasterId` int(10),
 	`description` varchar(1000)
 );

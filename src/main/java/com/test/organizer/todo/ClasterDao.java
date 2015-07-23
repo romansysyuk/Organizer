@@ -1,5 +1,5 @@
-//package com.test.organizer.todo;
-//
-//public interface ClasterDao {
-//
-//}
+package com.test.organizer.todo;
+
+public interface ClasterDao {
+
+}
