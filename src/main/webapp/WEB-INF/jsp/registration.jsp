@@ -12,8 +12,9 @@
 
 <body>
 	<h2>Registration Form</h2>
-	<form:form method="POST" modelAttribute="person">
-		<form:input type="hidden" path="personId" />
+	<form:form method="POST" modelAttribute="rdto">
+		<form:input type="hidden" path="userInfoId" />
+		<form:input type="hidden" path="userId" />
 		<table>
 			<tr>
 				<td><label for="firstName">First Name: </label></td>
@@ -31,14 +32,14 @@
 				<td><label for="email">Email: </label></td>
 				<td><form:input path="email" /></td>
 			</tr>
-			<tr>
-				<td><label for="login">Login: </label></td>
-				<td><form:input path="login" /></td>
+			 <tr>
+				<td><label for="username">Login: </label></td>
+				<td><form:input path="username" /></td>
 			</tr>
 			<tr>
 				<td><label for="password">Password: </label></td>
 				<td><form:password path="password" /></td>
-			</tr>
+			</tr> 
 			<tr>
 				<td colspan="3"><input type="submit" value="Register" /></td>
 			</tr>

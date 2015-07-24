@@ -41,7 +41,8 @@ public abstract class AbstractDaoImpl<E> implements AbstractDao<E> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<E> getAll() {
-		return (List<E>) getSession().createCriteria(getEntityClass().getCanonicalName()).list();
+		return (List<E>) getSession().createQuery("from User" ).list();
+				//createCriteria(getEntityClass().getCanonicalName()).list();
 	}
 
 }

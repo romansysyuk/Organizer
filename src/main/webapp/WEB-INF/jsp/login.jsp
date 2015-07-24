@@ -34,7 +34,7 @@
 }
 </style>
 </head>
-<body onload='document.loginForm.login.focus();'>
+<body onload='document.loginForm.username.focus();'>
 
 	<h1>Spring Security Custom Login Form (Annotation)</h1>
 
@@ -54,7 +54,7 @@
 			<table>
 				<tr>
 					<td>User:</td>
-					<td><input type='text' name='login' value=''></td>
+					<td><input type='text' name='username' value=''></td>
 				</tr>
 				<tr>
 					<td>Password:</td>

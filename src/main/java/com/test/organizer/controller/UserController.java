@@ -8,25 +8,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.test.organizer.entity.Person;
-import com.test.organizer.service.PersonService;
+import com.test.organizer.dto.RegistrationDto;
+import com.test.organizer.entity.User;
+import com.test.organizer.entity.UserInfo;
+import com.test.organizer.service.UserInfoService;
 
 @Controller
-public class PersonController {
+public class UserController {
 
 	@Autowired
-	PersonService personService;
+	UserInfoService userInfoService;
 
 	@RequestMapping(value = { "/newperson**" }, method = RequestMethod.GET)
 	public String newPerson(ModelMap model) {
-		Person person = new Person();
-		model.addAttribute("person", person);
+		RegistrationDto rdto = new RegistrationDto();
+		model.addAttribute("rdto", rdto);
 		return "registration";
 	}
 
 	@RequestMapping(value = { "/newperson**" }, method = RequestMethod.POST)
-	public String savePerson(Person person) {
-		personService.savePerson(person);
+	public String savePerson(RegistrationDto rdto) {
+		//userInfoService.savePerson(person);
 		return "registrationcomleted";
 	}
 
