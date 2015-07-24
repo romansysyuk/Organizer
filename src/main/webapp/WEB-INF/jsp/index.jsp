@@ -6,7 +6,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
 <body>
+It is index page. <a href="newevent">Please click here to create a new event in you calendar</a>
+<br>
 	<table align="center">
 		<tr>
 			<td><a href="newperson">REGISTER</a></td>
