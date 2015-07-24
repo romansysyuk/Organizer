@@ -41,6 +41,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return persons;
 	}
 
+	@Transactional
 	@Override
 	public boolean savePerson(UserInfo person) {
 		userInfoDao.save(person);

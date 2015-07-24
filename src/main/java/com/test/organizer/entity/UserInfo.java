@@ -81,6 +81,12 @@ public class UserInfo {
 		this.user = user;
 	}
 
-	public UserInfo() {
+	public UserInfo(int userInfoId, String firstName, String lastName, Date birthday, String email, User user) {
+		this.userInfoId = userInfoId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.birthday = birthday;
+		this.email = email;
+		this.user = user;
 	}
 }

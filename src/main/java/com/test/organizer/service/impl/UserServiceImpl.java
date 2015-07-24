@@ -2,6 +2,7 @@ package com.test.organizer.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.test.organizer.dao.UserDao;
 import com.test.organizer.entity.User;
@@ -18,6 +19,7 @@ public class UserServiceImpl implements UserService {
 		return userDao.getById(id);
 	}
 
+	@Transactional
 	@Override
 	public boolean saveUser(User user) {
 		userDao.save(user);

@@ -12,12 +12,16 @@ import com.test.organizer.dto.RegistrationDto;
 import com.test.organizer.entity.User;
 import com.test.organizer.entity.UserInfo;
 import com.test.organizer.service.UserInfoService;
+import com.test.organizer.service.UserService;
 
 @Controller
 public class UserController {
 
 	@Autowired
 	UserInfoService userInfoService;
+	
+	@Autowired
+	UserService userService;
 
 	@RequestMapping(value = { "/newperson**" }, method = RequestMethod.GET)
 	public String newPerson(ModelMap model) {
@@ -28,7 +32,10 @@ public class UserController {
 
 	@RequestMapping(value = { "/newperson**" }, method = RequestMethod.POST)
 	public String savePerson(RegistrationDto rdto) {
-		//userInfoService.savePerson(person);
+		User user = new User(rdto.getUsername(), rdto.getPassword(), true);
+		userService.saveUser(user);
+		UserInfo userInfo = new UserInfo(rdto.getUserInfoId(), rdto.getFirstName(), rdto.getLastName(), rdto.getBirthday(), rdto.getEmail(), user);
+		userInfoService.savePerson(userInfo);
 		return "registrationcomleted";
 	}
 
