@@ -14,6 +14,7 @@ It is index page. <a href="newevent">Please click here to create a new event in 
 		<tr>
 			<td><a href="newperson">REGISTER</a></td>
 			<td><a href="login">LOGIN</a></td>
+			<td><a href="admin/allEvents">IF ADMIN SEE ALL EVENTS</a></td>
 		</tr>
 	</table>
 </body>

@@ -37,4 +37,11 @@ public class EventController {
 		model.addObject("events", eventService.getEventByUsername(username));
 		return model;
 	}
+	
+	@RequestMapping(value = {"/admin/allEvents"}, method = RequestMethod.GET)
+	public ModelAndView allEvents(){
+		ModelAndView model = new ModelAndView("allEvents");
+		model.addObject("events", eventService.getAllEvents());
+		return model;
+	}
 }
