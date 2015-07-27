@@ -33,4 +33,10 @@ public class EventDaoImpl extends AbstractDaoImpl<Event>implements EventDao {
 		criteria.add(Restrictions.eq("eventDate", eventDate));
 		return (List<Event>) criteria.list();
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Event> getByUsername(String username) {
+		return (List<Event>) getSession().createQuery("from Event where username = ?").setParameter(0, username).list();
+	}
 }

@@ -19,7 +19,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.getById(id);
 	}
 
-	@Transactional
 	@Override
 	public boolean saveUser(User user) {
 		userDao.save(user);
@@ -39,6 +38,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public User findByUserName(String username) {
 		return userDao.findByUserName(username);
 	}

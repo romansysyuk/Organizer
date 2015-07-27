@@ -60,4 +60,9 @@ public class EventServiceImpl implements EventService {
 		return true;
 	}
 
+	@Override
+	public List<Event> getEventByUsername(String username) {
+		return eventDao.getByUsername(username);
+	}
+
 }

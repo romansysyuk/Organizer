@@ -4,36 +4,32 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "event")
+@Table(name = "event", uniqueConstraints = @UniqueConstraint(columnNames = { "username" }))
 public class Event {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "eventId")
 	private int eventId;
-
-	@Column(name = "eventDate")
 	private Date eventDate;
-
-	@Column(name = "eventName")
 	private String eventName;
-	
-	@Column(name = "personLogin")
-	private String personLogin;
-
-	@Column(name = "description")
+	private User user;
 	private String description;
 
 	public Event() {
 
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "eventId", unique = true, nullable = false)
 	public int getEventId() {
 		return eventId;
 	}
@@ -42,6 +38,7 @@ public class Event {
 		this.eventId = eventId;
 	}
 
+	@Column(name = "eventDate", nullable = false)
 	public Date getEventDate() {
 		return eventDate;
 	}
@@ -50,22 +47,26 @@ public class Event {
 		this.eventDate = eventDate;
 	}
 
+	@Column(name = "eventName", nullable = false)
 	public String getEventName() {
 		return eventName;
-	}
-	
-	public String getPersonLogin() {
-		return personLogin;
-	}
-
-	public void setPersonLogin(String personLogin) {
-		this.personLogin = personLogin;
 	}
 
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
 	}
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "username")
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	@Column(name = "description")
 	public String getDescription() {
 		return description;
 	}

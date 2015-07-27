@@ -21,6 +21,7 @@ public class User {
 	private String password;
 	private boolean enabled;
 	private Set<UserRole> userRole = new HashSet<UserRole>(0);
+	private Set<Event> event = new HashSet<Event>(0);
 
 	public User() {
 	}
@@ -84,6 +85,15 @@ public class User {
 
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
+	}
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+	public Set<Event> getEvent() {
+		return this.event;
+	}
+
+	public void setEvent(Set<Event> event) {
+		this.event = event;
 	}
 
 }

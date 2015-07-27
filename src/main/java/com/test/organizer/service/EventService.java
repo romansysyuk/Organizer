@@ -9,6 +9,8 @@ public interface EventService {
 	Event getEventById(int id);
 
 	List<Event> getEventByName(String eventName);
+	
+	List<Event> getEventByUsername(String username);
 
 	List<Event> getEventByDate(Date eventDate);
 
