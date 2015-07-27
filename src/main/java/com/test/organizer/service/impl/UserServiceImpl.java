@@ -8,7 +8,8 @@ import com.test.organizer.dao.UserDao;
 import com.test.organizer.entity.User;
 import com.test.organizer.service.UserService;
 
-@Service("userServiceImpl")
+@Service("userService")
+@Transactional
 public class UserServiceImpl implements UserService {
 
 	@Autowired

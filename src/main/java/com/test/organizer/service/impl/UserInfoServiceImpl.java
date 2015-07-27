@@ -24,6 +24,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<UserInfo> getAllPersons() {
 		List<UserInfo> allPersons = userInfoDao.getAll();
 		return allPersons;

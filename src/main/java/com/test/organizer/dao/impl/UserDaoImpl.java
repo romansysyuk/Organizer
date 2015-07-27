@@ -2,6 +2,8 @@ package com.test.organizer.dao.impl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 
 import com.test.organizer.dao.UserDao;
@@ -21,6 +23,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User>implements UserDao {
 	}
 
 	@Override
+	@Transactional
 	public void save(User entity) {
 		getSession().save(entity);
 	}

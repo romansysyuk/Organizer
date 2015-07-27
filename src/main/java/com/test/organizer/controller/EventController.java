@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.test.organizer.entity.Event;
 import com.test.organizer.service.EventService;
+import com.test.organizer.service.UserInfoService;
 import com.test.organizer.service.UserService;
 
 @Controller
@@ -20,6 +22,9 @@ public class EventController {
 
 	@Autowired
 	UserService userService;
+	
+	@Autowired
+	UserInfoService userInfoService;
 
 	@RequestMapping(value = { "/newevent" }, method = RequestMethod.GET)
 	public String createEvent(ModelMap model) {
@@ -37,11 +42,30 @@ public class EventController {
 		model.addObject("events", eventService.getEventByUsername(username));
 		return model;
 	}
-	
-	@RequestMapping(value = {"/admin/allEvents"}, method = RequestMethod.GET)
-	public ModelAndView allEvents(){
+
+	@RequestMapping(value = { "/admin/allEvents" }, method = RequestMethod.GET)
+	public ModelAndView allEvents() {
 		ModelAndView model = new ModelAndView("allEvents");
 		model.addObject("events", eventService.getAllEvents());
 		return model;
+	}
+
+	@RequestMapping(value = { "/admin/deleteEvent/{eventId}" }, method = RequestMethod.GET)
+	public String deleteEvent(@PathVariable("eventId") int eventId) {
+		eventService.deleteEvent(eventService.getEventById(eventId));
+		return "redirect:/admin/allEvents";
+	}
+	
+	@RequestMapping(value = { "/admin/allUsers" }, method = RequestMethod.GET)
+	public ModelAndView allUsers() {
+		ModelAndView model = new ModelAndView("allUsers");
+		model.addObject("users", userInfoService.getAllPersons());
+		return model;
+	}
+
+	@RequestMapping(value = { "/admin/deleteEvent/{userId}" }, method = RequestMethod.GET)
+	public String deleteUser(@PathVariable("userId") int userId) {
+		userService.deleteUser(userService.findById(userId));
+		return "redirect:/admin/allUsers";
 	}
 }

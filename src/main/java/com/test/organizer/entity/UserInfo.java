@@ -89,4 +89,7 @@ public class UserInfo {
 		this.email = email;
 		this.user = user;
 	}
+	
+	public UserInfo() {
+	}
 }

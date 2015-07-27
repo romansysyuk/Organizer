@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>All Events</title>
 </head>
 <body>
 Welcome ADMIN 
@@ -13,13 +13,16 @@ Welcome ADMIN
 		<th>Event Name</th>
 		<th>Event Date</th>
 		<th>Description</th>
+		<th>Username</th>
+		<th>Delete</th>
 		</tr>
 		<c:forEach items="${events}" var="event">
 		<tr>
 		<td><c:out value="${event.getEventName()}"/></td>
 		<td><c:out value="${event.getEventDate()}"/></td>
 		<td><c:out value="${event.getDescription()}"/></td>
-		<td><a href = "admin/delete/{}"></a></td>
+		<td><c:out value="${event.getUser().getUsername()}"/></td>
+		<td><a href = "deleteEvent/${event.getEventId()}">Delete this event</a></td>
 		</tr>
 		</c:forEach>
 	</table>
