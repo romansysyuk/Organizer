@@ -32,14 +32,14 @@
 				<td><label for="email">Email: </label></td>
 				<td><form:input path="email" /></td>
 			</tr>
-			 <tr>
+			<tr>
 				<td><label for="username">Login: </label></td>
 				<td><form:input path="username" /></td>
 			</tr>
 			<tr>
 				<td><label for="password">Password: </label></td>
 				<td><form:password path="password" /></td>
-			</tr> 
+			</tr>
 			<tr>
 				<td colspan="3"><input type="submit" value="Register" /></td>
 			</tr>

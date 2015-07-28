@@ -21,14 +21,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = { "/newperson" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/newUser" }, method = RequestMethod.GET)
 	public String newPerson(ModelMap model) {
 		RegistrationDto rdto = new RegistrationDto();
 		model.addAttribute("rdto", rdto);
-		return "registration";
+		return "newUser";
 	}
 
-	@RequestMapping(value = { "/newperson" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/newUser" }, method = RequestMethod.POST)
 	public String savePerson(RegistrationDto rdto) {
 		User user = new User(rdto.getUsername(), rdto.getPassword(), true);
 		userService.saveUser(user);

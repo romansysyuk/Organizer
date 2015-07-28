@@ -71,7 +71,7 @@ public class UserInfo {
 		this.email = email;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "username")
 	public User getUser() {
 		return user;

@@ -19,7 +19,7 @@ public class UserDaoImpl extends AbstractDaoImpl<User>implements UserDao {
 
 	@Override
 	public User getById(int id) {
-		return (User) getSession().createQuery("from User where user_id=?");
+		return (User) getSession().createQuery("from User where user_id=?").setParameter(0, id).uniqueResult();
 	}
 
 	@Override

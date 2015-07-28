@@ -26,14 +26,14 @@ public class EventController {
 	@Autowired
 	UserInfoService userInfoService;
 
-	@RequestMapping(value = { "/newevent" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/newEvent" }, method = RequestMethod.GET)
 	public String createEvent(ModelMap model) {
 		Event event = new Event();
 		model.addAttribute(event);
-		return "event";
+		return "newEvent";
 	}
 
-	@RequestMapping(value = { "/myevents" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/myEvents" }, method = RequestMethod.POST)
 	public ModelAndView saveEvent(Event event) {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		event.setUser(userService.findByUserName(username));
@@ -63,7 +63,7 @@ public class EventController {
 		return model;
 	}
 
-	@RequestMapping(value = { "/admin/deleteEvent/{userId}" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/admin/deleteUser/{userId}" }, method = RequestMethod.GET)
 	public String deleteUser(@PathVariable("userId") int userId) {
 		userService.deleteUser(userService.findById(userId));
 		return "redirect:/admin/allUsers";

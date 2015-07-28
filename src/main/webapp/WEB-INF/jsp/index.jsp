@@ -8,11 +8,13 @@
 </head>
 
 <body>
-It is index page. <a href="newevent">Please click here to create a new event in you calendar</a>
-<br>
+	It is index page.
+	<a href="newEvent">Please click here to create a new event in you
+		calendar</a>
+	<br>
 	<table align="center">
 		<tr>
-			<td><a href="newperson">REGISTER</a></td>
+			<td><a href="newUser">REGISTER</a></td>
 			<td><a href="login">LOGIN</a></td>
 			<td><a href="admin/allEvents">IF ADMIN SEE ALL EVENTS</a></td>
 			<td><a href="admin/allUsers">IF ADMIN SEE ALL USERS</a></td>

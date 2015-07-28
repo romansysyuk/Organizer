@@ -9,17 +9,17 @@
 <body>
 	Welcome : ${pageContext.request.userPrincipal.name}
 	<table>
-	<tr>
-		<th>Event Name</th>
-		<th>Event Date</th>
-		<th>Description</th>
+		<tr>
+			<th>Event Name</th>
+			<th>Event Date</th>
+			<th>Description</th>
 		</tr>
 		<c:forEach items="${events}" var="event">
-		<tr>
-		<td><c:out value="${event.getEventName()}"/></td>
-		<td><c:out value="${event.getEventDate()}"/></td>
-		<td><c:out value="${event.getDescription()}"/></td>
-		</tr>
+			<tr>
+				<td><c:out value="${event.getEventName()}" /></td>
+				<td><c:out value="${event.getEventDate()}" /></td>
+				<td><c:out value="${event.getDescription()}" /></td>
+			</tr>
 		</c:forEach>
 	</table>
 </body>
