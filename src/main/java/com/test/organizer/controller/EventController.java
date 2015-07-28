@@ -38,7 +38,7 @@ public class EventController {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		event.setUser(userService.findByUserName(username));
 		eventService.saveEvent(event);
-		ModelAndView model = new ModelAndView("myevents");
+		ModelAndView model = new ModelAndView("myEvents");
 		model.addObject("events", eventService.getEventByUsername(username));
 		return model;
 	}

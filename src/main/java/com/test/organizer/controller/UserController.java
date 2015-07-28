@@ -37,4 +37,9 @@ public class UserController {
 		userInfoService.savePerson(userInfo);
 		return "registrationcomleted";
 	}
+
+	@RequestMapping(value = { "/editUser" }, method = RequestMethod.GET)
+	public String editUser() {
+		return "editUser";
+	}
 }
