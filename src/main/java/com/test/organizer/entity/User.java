@@ -39,7 +39,6 @@ public class User {
 		this.userRole = userRole;
 	}
 
-	
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id", unique = true, nullable = false)
 	public int getUserId() {
@@ -86,7 +85,7 @@ public class User {
 	public void setUserRole(Set<UserRole> userRole) {
 		this.userRole = userRole;
 	}
-	
+
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
 	public Set<Event> getEvent() {
 		return this.event;
