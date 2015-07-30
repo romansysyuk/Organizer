@@ -21,6 +21,7 @@ public class UserInfoDaoImpl extends AbstractDaoImpl<UserInfo>implements UserInf
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserInfo> findByName(String firstName) {
+		// TODO Rewrite without Criteria
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
 		criteria.add(Restrictions.eq("first_name", firstName));
 		return (List<UserInfo>) criteria.list();
@@ -29,6 +30,7 @@ public class UserInfoDaoImpl extends AbstractDaoImpl<UserInfo>implements UserInf
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<UserInfo> findByTwoNames(String firstName, String lastName) {
+		// TODO Rewrite without Criteria
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
 		criteria.add(Restrictions.eq("first_name", firstName));
 		criteria.add(Restrictions.eq("last_name", lastName));
@@ -40,9 +42,4 @@ public class UserInfoDaoImpl extends AbstractDaoImpl<UserInfo>implements UserInf
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	
-//		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
-//		criteria.add(Restrictions.eq("username", userName));
-//		return (User) criteria.uniqueResult();
 }

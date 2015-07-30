@@ -15,6 +15,7 @@ import com.test.organizer.service.UserInfoService;
 import com.test.organizer.service.UserService;
 
 @Controller
+@RequestMapping(value = "/event")
 public class EventController {
 
 	@Autowired
@@ -32,8 +33,16 @@ public class EventController {
 		model.addAttribute(event);
 		return "newEvent";
 	}
+	
+	@RequestMapping(value = { "/myEvents" }, method = RequestMethod.GET)
+	public ModelAndView myEvents() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		ModelAndView model = new ModelAndView("myEvents");
+		model.addObject("events", eventService.getEventByUsername(username));
+		return model;
+	}
 
-	@RequestMapping(value = { "/myEvents" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "/newEvent" }, method = RequestMethod.POST)
 	public ModelAndView saveEvent(Event event) {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		event.setUser(userService.findByUserName(username));
@@ -42,30 +51,12 @@ public class EventController {
 		model.addObject("events", eventService.getEventByUsername(username));
 		return model;
 	}
-
-	@RequestMapping(value = { "/admin/allEvents" }, method = RequestMethod.GET)
-	public ModelAndView allEvents() {
-		ModelAndView model = new ModelAndView("allEvents");
-		model.addObject("events", eventService.getAllEvents());
-		return model;
-	}
-
-	@RequestMapping(value = { "/admin/deleteEvent/{eventId}" }, method = RequestMethod.GET)
+	
+	@RequestMapping(value = { "/deleteEvent/{eventId}" }, method = RequestMethod.GET)
 	public String deleteEvent(@PathVariable("eventId") int eventId) {
 		eventService.deleteEvent(eventService.getEventById(eventId));
-		return "redirect:/admin/allEvents";
-	}
-	
-	@RequestMapping(value = { "/admin/allUsers" }, method = RequestMethod.GET)
-	public ModelAndView allUsers() {
-		ModelAndView model = new ModelAndView("allUsers");
-		model.addObject("users", userInfoService.getAllPersons());
-		return model;
+		return "redirect:/event/myEvents";
 	}
 
-	@RequestMapping(value = { "/admin/deleteUser/{userId}" }, method = RequestMethod.GET)
-	public String deleteUser(@PathVariable("userId") int userId) {
-		userService.deleteUser(userService.findById(userId));
-		return "redirect:/admin/allUsers";
-	}
+	
 }

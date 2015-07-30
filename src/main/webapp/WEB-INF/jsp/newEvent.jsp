@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2>New Event</h2>
-	<form:form method="POST" modelAttribute="event" action="myEvents">
+	<form:form method="POST" modelAttribute="event" action="newEvent">
 		<form:input type="hidden" path="eventId" />
 		<table>
 			<tr>

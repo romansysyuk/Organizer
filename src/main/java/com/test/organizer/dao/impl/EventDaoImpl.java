@@ -21,6 +21,7 @@ public class EventDaoImpl extends AbstractDaoImpl<Event>implements EventDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getByEventName(String eventName) {
+		// TODO Rewrite without Criteria
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
 		criteria.add(Restrictions.eqProperty("eventName", eventName));
 		return (List<Event>) criteria.list();
@@ -29,6 +30,7 @@ public class EventDaoImpl extends AbstractDaoImpl<Event>implements EventDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Event> getByEventDate(Date eventDate) {
+		// TODO Rewrite without Criteria
 		Criteria criteria = getSession().createCriteria(getEntityClass().getCanonicalName());
 		criteria.add(Restrictions.eq("eventDate", eventDate));
 		return (List<Event>) criteria.list();

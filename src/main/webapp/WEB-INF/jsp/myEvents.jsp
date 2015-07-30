@@ -8,17 +8,20 @@
 </head>
 <body>
 	Welcome : ${pageContext.request.userPrincipal.name}
-	<table>
+	<table border=1>
 		<tr>
 			<th>Event Name</th>
 			<th>Event Date</th>
 			<th>Description</th>
+			<th>Delete/Edit</th>
 		</tr>
 		<c:forEach items="${events}" var="event">
 			<tr>
 				<td><c:out value="${event.getEventName()}" /></td>
 				<td><c:out value="${event.getEventDate()}" /></td>
 				<td><c:out value="${event.getDescription()}" /></td>
+				<td><a href="deleteEvent/${event.getEventId()}">Delete</a> <br>
+					<a href="editEvent/${event.getEventId()}">Edit</a></td>
 			</tr>
 		</c:forEach>
 	</table>
