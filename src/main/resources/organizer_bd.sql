@@ -2,6 +2,19 @@ drop database if exists `organizer`;
 create database `organizer`;
 use `organizer`;
 
+drop table if exists `users`;
+CREATE  TABLE `users` (
+	`user_id` int(10) not null auto_increment,
+  `username` VARCHAR(45) NOT NULL primary key,
+  `password` VARCHAR(60) NOT NULL ,
+  `enabled` TINYINT NOT NULL DEFAULT 1,
+  UNIQUE KEY `uni_users_username` (user_id)
+  
+  );  
+  INSERT INTO `users`(username, password, enabled) VALUES ('petro1','123456', true);
+  INSERT INTO `users`(username, password, enabled) VALUES ('petro2','123456', true);
+  INSERT INTO `users`(username, password, enabled) VALUES ('petro3','123456', true);
+  
 drop table if exists `user_info`;
 create table `user_info`(
 	`user_info_id` int(10) not null auto_increment primary key,
@@ -10,23 +23,13 @@ create table `user_info`(
 	`birthday` date not null,
 	`email` varchar(70) not null,
 	`username` varchar(45) not null,
-	unique key `uni_user_info_username` (username)
+	unique key `uni_user_info_username` (username),
+    CONSTRAINT `fk_username` FOREIGN KEY (username) REFERENCES `users` (username) on delete cascade
 );
 insert into `user_info` (first_name, last_name, birthday, email, username) values ('Petro1','Petro1','1991-07-10','matyashps1@gmail.com','petro1');
 insert into `user_info` (first_name, last_name, birthday, email, username) values ('Petro2','Petro2','1991-07-10','matyashps2@gmail.com','petro2');
+insert into `user_info` (first_name, last_name, birthday, email, username) values ('Petro3','Petro3','1991-07-10','matyashps3@gmail.com','petro3');
 
-
-drop table if exists `users`;
-CREATE  TABLE `users` (
-	`user_id` int(10) not null auto_increment,
-  `username` VARCHAR(45) NOT NULL primary key,
-  `password` VARCHAR(60) NOT NULL ,
-  `enabled` TINYINT NOT NULL DEFAULT 1,
-  UNIQUE KEY `uni_users_username` (user_id)
-  );  
-  INSERT INTO `users`(username, password, enabled) VALUES ('petro1','$2a$10$04TVADrR6/SPLBjsK0N30.Jf5fNjBugSACeGv1S69dZALR7lSov0y', true);
-  INSERT INTO `users`(username, password, enabled) VALUES ('petro2','$2a$10$04TVADrR6/SPLBjsK0N30.Jf5fNjBugSACeGv1S69dZALR7lSov0y', true);
-  
 
 drop table if exists `user_roles`;
 CREATE TABLE `user_roles` (
@@ -35,12 +38,13 @@ CREATE TABLE `user_roles` (
   `role` VARCHAR(20) NOT NULL default 'ROLE_USER',
   PRIMARY KEY (user_role_id),
   UNIQUE KEY `uni_username_role` (role, username),
-  KEY `fk_username_idx` (username),
-  CONSTRAINT `fk_username` FOREIGN KEY (username) REFERENCES `users` (username));
+  CONSTRAINT `fk_user_roles_username` FOREIGN KEY (username) REFERENCES `users` (username) on delete cascade);
   insert into `user_roles` values (1,'petro1','ROLE_SUPERADMIN');
   insert into `user_roles` values (2,'petro1','ROLE_ADMIN');
   insert into `user_roles` values (3,'petro1','ROLE_USER');
   insert into `user_roles` values (4,'petro2','ROLE_USER');
+	insert into `user_roles` values (5,'petro3','ROLE_ADMIN');
+  insert into `user_roles` values (6,'petro3','ROLE_USER');
   
 
 drop table if exists `event`;
@@ -50,7 +54,7 @@ create table `event`(
 	`eventName` varchar(50) not null,
 	`description` varchar(1000),
 	`username` varchar(45) not null,
-	constraint `fk_event_username` foreign key (username) references `users` (username)
+	constraint `fk_event_username` foreign key (username) references `users` (username) on delete cascade
 );
 
 insert into `event` (eventDate, eventName, description, username) values ('2015-07-01', 'event1', 'petro1 event1 description', 'petro1');

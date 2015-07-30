@@ -26,7 +26,7 @@
 #login-box {
 	width: 300px;
 	padding: 20px;
-	margin: 100px auto;
+	margin: 10px auto;
 	background: #fff;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -36,11 +36,9 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<h1>Spring Security Custom Login Form (Annotation)</h1>
+	<h4>Put your login and password</h4>
 
 	<div id="login-box">
-
-		<h3>Login with Login and Password</h3>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>

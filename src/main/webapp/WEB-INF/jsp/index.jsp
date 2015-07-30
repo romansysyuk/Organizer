@@ -1,23 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Organizer index page</title>
 </head>
 
 <body>
-	It is index page.
-	<a href="newEvent">Please click here to create a new event in you
-		calendar</a>
-	<br>
-	<table align="center">
+	<c:if test="${pageContext.request.userPrincipal.name != null}">
+		<c:out value="Hello, ${pageContext.request.userPrincipal.name}" />
+	</c:if>
+	<c:if test="${pageContext.request.userPrincipal.name == null}">
+		<c:out value="Hello, you are unregistered user" />
+	</c:if>
+	<table align="center" border="1">
 		<tr>
-			<td><a href="newUser">REGISTER</a></td>
-			<td><a href="login">LOGIN</a></td>
-			<td><a href="admin/allEvents">IF ADMIN SEE ALL EVENTS</a></td>
-			<td><a href="admin/allUsers">IF ADMIN SEE ALL USERS</a></td>
+			<td><a href="newUser">Registration</a></td>
+			<td><a href="login">Login</a></td>
+			<sec:authorize access="hasRole('ADMIN')">
+				<td><a href="admin/allEvents">Events</a></td>
+				<td><a href="admin/allUsers">Users</a></td>
+			</sec:authorize>
 		</tr>
 	</table>
 </body>
