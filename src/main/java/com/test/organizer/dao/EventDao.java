@@ -10,5 +10,7 @@ public interface EventDao extends AbstractDao<Event> {
 
 	List<Event> getByEventDate(Date eventDate);
 	
+	List<Event> getEventBetweenTwoDates(Date startDate, Date endDate);
+	
 	List<Event> getByUsername(String username);
 }

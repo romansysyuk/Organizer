@@ -38,7 +38,7 @@ public class EventController {
 	public ModelAndView myEvents() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getName();
 		ModelAndView model = new ModelAndView("myEvents");
-		model.addObject("events", eventService.getEventByUsername(username));
+		model.addObject("events", eventService.getUpcomingEvents(100000000));
 		return model;
 	}
 
@@ -56,6 +56,23 @@ public class EventController {
 	public String deleteEvent(@PathVariable("eventId") int eventId) {
 		eventService.deleteEvent(eventService.getEventById(eventId));
 		return "redirect:/event/myEvents";
+	}
+	
+	@RequestMapping(value="/editEvent/{eventId}", method = RequestMethod.GET)
+	public ModelAndView editEventPage(@PathVariable("eventId") int eventId){
+		ModelAndView model = new ModelAndView("editEvent");
+		Event event = eventService.getEventById(eventId);
+		model.addObject("event", event);
+		return model;
+		
+	}
+	
+	@RequestMapping(value = {"/editEvent/{eventId}"}, method = RequestMethod.POST)
+	public String editEvent(Event event){
+		String username = SecurityContextHolder.getContext().getAuthentication().getName();
+		event.setUser(userService.findByUserName(username));
+		eventService.updateEvent(event);
+		return "editEvent";
 	}
 
 	

@@ -15,6 +15,8 @@ public interface EventService {
 	List<Event> getEventByDate(Date eventDate);
 
 	List<Event> getAllEvents();
+	
+	List<Event> getUpcomingEvents(int period);
 
 	boolean saveEvent(Event event);
 

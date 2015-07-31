@@ -1,5 +1,9 @@
 package com.test.organizer.service.impl;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -63,6 +67,25 @@ public class EventServiceImpl implements EventService {
 	@Override
 	public List<Event> getEventByUsername(String username) {
 		return eventDao.getByUsername(username);
+	}
+
+	@Override
+	public List<Event> getUpcomingEvents(int period) {
+		Date date;
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String str = sdf.format(new Date());
+		try {
+			date = sdf.parse(str);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		Calendar currentCalendar = Calendar.getInstance();
+	//	currentCalendar.setTime(date);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(currentCalendar.getTimeInMillis() - period);
+
+		List<Event> events = eventDao.getEventBetweenTwoDates(new Date(), new Date(currentCalendar.getTimeInMillis() - period));
+			return events;
 	}
 
 }
