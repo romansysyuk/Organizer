@@ -1,5 +1,5 @@
 /target/
-.gitignore
+.classpath
 .project
 Organizer.iml
 /.idea
