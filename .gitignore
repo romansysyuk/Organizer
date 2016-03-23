@@ -1,1 +1,6 @@
 /target/
+.gitignore
+.project
+Organizer.iml
+/.idea
+/.settings
