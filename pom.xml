@@ -13,6 +13,8 @@
 	</properties>
 	<dependencies>
 		<!-- Spring -->
+		
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -23,6 +25,9 @@
 			<artifactId>spring-web</artifactId>
 			<version>${springframework.version}</version>
 		</dependency>
+		
+		
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -54,6 +59,9 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>4.0.1.RELEASE</version>
 		</dependency>
+		
+		
+		
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
@@ -63,11 +71,11 @@
 			<version>4.0.1.RELEASE</version> </dependency> -->
 
 		<!-- Hibernate -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
+		//<dependency>
+		//	<groupId>org.hibernate</groupId>
+		//	<artifactId>hibernate-core</artifactId>
+		//	<version>${hibernate.version}</version>
+		//</dependency>
 
 		<!-- jsr303 validation -->
 		<dependency>
